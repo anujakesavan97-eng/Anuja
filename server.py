@@ -1,5 +1,6 @@
 from flask import Flask, request
 import pickle
+import os
 
 app = Flask(__name__)
 
@@ -20,4 +21,6 @@ def preds():
 
     return str(final_predictions[0])
 
-app.run()     
+portt = int(os.environ.get("PORT",8000))
+app.run(host = '0.0.0.0',port = port)     
+
